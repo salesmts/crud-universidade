@@ -1,2 +1,2 @@
 # CRUD Universidade
-## CRUD com utilizando Java 11, SpringBoot e PostgreSQL para treinamento.
+## CRUD utilizando Java 11, SpringBoot e PostgreSQL para treinamento.
