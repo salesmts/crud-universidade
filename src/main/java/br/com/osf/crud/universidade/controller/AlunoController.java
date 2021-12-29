@@ -18,39 +18,38 @@ import br.com.osf.crud.universidade.model.Aluno;
 import br.com.osf.crud.universidade.repository.AlunoRepository;
 
 @RestController
-@RequestMapping(value="/universidade")
+@RequestMapping(value = "/universidade")
 public class AlunoController {
 
 	@Autowired
 	AlunoRepository alunoRepository;
-	
+
 	@GetMapping("/alunos")
 	public List<Aluno> listaAlunos() {
 		return alunoRepository.findAll();
 	}
-	
+
 	@GetMapping("/alunos/{id}")
-	public Aluno listaAlunoId(@PathVariable(value= "id") Long id) {
+	public Aluno listaAlunoId(@PathVariable(value = "id") Long id) {
 		return alunoRepository.findById(id);
 	}
-	
+
 	@PostMapping("/alunos")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Aluno salvaAluno(@RequestBody Aluno aluno) {
 		return alunoRepository.save(aluno);
 	}
-	
+
 	@DeleteMapping("/alunos")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletaAluno(@RequestBody Aluno aluno) {
 		alunoRepository.delete(aluno);
 	}
-	
+
 	@PutMapping("/alunos")
 	@ResponseStatus(HttpStatus.OK)
 	public Aluno atualizaAluno(@RequestBody Aluno aluno) {
 		return alunoRepository.save(aluno);
 	}
-	
-	
+
 }
